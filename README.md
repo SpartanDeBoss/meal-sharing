@@ -66,6 +66,10 @@ The api can now be found on `http://localhost:3000/api/` an example is `http://l
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 
+## ☁️ Deployment <a name = "deployment"></a>
+
+[Deployment guide](https://github.com/HackYourFuture-CPH/deployment-guide)
+
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@benna100](https://github.com/benna100) - Idea & Initial work
