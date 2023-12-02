@@ -61,7 +61,7 @@ router.get('/last-meal', async (_, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Server is running...'));
+app.listen(3000, () => console.log('Server is running....'));
 
 if (process.env.API_PATH) {
   app.use(process.env.API_PATH, router);
