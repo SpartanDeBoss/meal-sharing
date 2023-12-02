@@ -15,7 +15,7 @@ const knex = require('knex')({
   pool: { min: 0, max: 7 },
 });
 
-// Check that the connection works
+/// Check that the connection works
 knex.raw('SELECT VERSION()').then(() => {
   console.log(`connection to db successful!`);
 });
