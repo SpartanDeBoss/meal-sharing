@@ -4,7 +4,6 @@ const knex = require('../database');
 
 router.get('/', async (request, response) => {
   try {
-    
     // knex syntax for selecting things. Look up the documentation for knex for further info
 
     router.get('/api/meals', async (req, res) => {
@@ -37,12 +36,11 @@ router.get('/', async (request, response) => {
       res.json({ message: 'Meal deleted' });
     });
 
-
     const meals = await knex('meal');
     response.json(meals);
   } catch (error) {
     throw error;
   }
 });
-
+//
 module.exports = router;
