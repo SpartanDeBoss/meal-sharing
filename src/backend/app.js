@@ -75,5 +75,5 @@ if (process.env.API_PATH) {
 app.use('*', (req, res) => {
   res.sendFile(path.join(`${buildPath}/index.html`));
 });
-
+//
 module.exports = app;
