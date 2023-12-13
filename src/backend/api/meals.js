@@ -36,11 +36,13 @@ router.get('/', async (request, response) => {
       res.json({ message: 'Meal deleted' });
     });
 
-    const meals = await knex('meal');
-    response.json(meals);
+
+
+    const meals = await knex('meals');
+    response.json(meal);
   } catch (error) {
     throw error;
   }
 });
-
+//
 module.exports = router;
