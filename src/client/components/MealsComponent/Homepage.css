@@ -1,0 +1,52 @@
+
+.h2 {
+  font-family: 'philosopher', sans-serif;
+  font-size: 40px;
+
+}
+
+
+.see-more {
+  display: flex;
+  justify-content: center;
+}
+
+.meal-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+  gap: 20px; 
+  cursor: pointer;
+  
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #3c1a1a;
+  color: #fff;
+  padding: 20px;
+}
+
+.footer-section {
+  flex: 1;
+}
+
+.footer-section h4,
+.footer-section h5 {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer:hover {
+  background-color: #5c2a2a;
+}
+
+.footer ul li:hover {
+  color: #fff;
+  cursor: pointer;
+}
