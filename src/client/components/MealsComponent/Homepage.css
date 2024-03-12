@@ -1,39 +1,67 @@
-
-.h2 {
-  font-family: 'philosopher', sans-serif;
-  font-size: 40px;
-
-}
-
-
-.see-more {
+.title {
   display: flex;
   justify-content: center;
+  font-family: 'philosopher', sans-serif;
+  font-size: 60px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.slogan {
+  display: flex;
+  justify-content: center;
+  font-family: 'philosopher', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.homepage-container img {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.see-more-button {
+  font-family: 'philosopher', sans-serif;
+  font-size: 20px;
+  color: #3e99c0;
+  text-decoration: none;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  display: block;
+  align-items: center;
+  text-align: center;
 }
 
 .meal-section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; 
-  gap: 20px; 
+  justify-content: space-around;
+  gap: 20px;
   cursor: pointer;
-  
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
-  background-color: #3c1a1a;
+  margin-top: 50px;
+  background-color: rgba(60, 26, 26, 0.8);
   color: #fff;
-  padding: 20px;
+  /* padding: 4px; */
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.footer:hover {
+  background-color: rgba(60, 26, 26, 1);
 }
 
 .footer-section {
   flex: 1;
 }
 
-.footer-section h4,
-.footer-section h5 {
+
+.footer-section h4 {
   border-bottom: 1px solid #fff;
   padding-bottom: 10px;
 }

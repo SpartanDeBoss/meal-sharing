@@ -1,32 +1,51 @@
-import React, { useState } from 'react';
+// ReservationForm.js
+import React from 'react';
 
-function ReservationForm({ mealId }) {
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const response = await fetch('/api/reservations', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ mealId, phoneNumber, name, email }),
-    });
-
-    if (response.ok) {
-      alert('Reservation made successfully!');
-    } else {
-      alert('An error occurred while making the reservation.');
-    }
-  };
-
+function ReservationForm({ onSubmit, initialValues, handleInputChange }) {
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Phone Number" required />
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required />
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-      <button type="submit">Book Seat</button>
+    <form onSubmit={onSubmit}>
+      <div>
+        <label>Name:</label>
+        <input
+          type="text"
+          name="name"
+          value={initialValues.name}
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div>
+        <label>Phone Number:</label>
+        <input
+          type="text"
+          name="phoneNumber"
+          value={initialValues.phoneNumber}
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          value={initialValues.email}
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div>
+        <label>Number of Guests:</label>
+        <input
+          type="number"
+          name="numberOfGuests"
+          value={initialValues.numberOfGuests}
+          onChange={handleInputChange}
+          min="1"
+          required
+        />
+      </div>
+      <button type="submit">Reserve</button>
     </form>
   );
 }

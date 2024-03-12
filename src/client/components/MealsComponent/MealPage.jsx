@@ -6,8 +6,18 @@ import ReviewForm from './ReviewForm';
 function MealPage() {
   const { id } = useParams();
   const [meal, setMeal] = useState(null);
-  const [showReservationForm, setShowReservationForm] = useState(false);
+  const [reservationData, setReservationData] = useState({
+    name: '',
+    phoneNumber: '',
+    email: '',
+    numberOfGuests: 0,
+  });
+  const [reviewData, setReviewData] = useState({
+    rating: 0,
+    comment: '',
+  });
   const [showReviewForm, setShowReviewForm] = useState(false);
+  const [showReservationForm, setShowReservationForm] = useState(false);
 
   useEffect(() => {
     fetch(`/api/meals/${id}`)
@@ -21,33 +31,51 @@ function MealPage() {
       .catch((error) => console.error('Error:', error));
   }, [id]);
 
+  const handleReservationFormSubmit = async (event) => {
+    setShowReservationForm(false);
+  };
+
+  const handleReviewFormSubmit = async (event) => {
+    setShowReviewForm(false);
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setReservationData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleReviewInputChange = (event) => {
+    const { name, value } = event.target;
+    setReviewData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   return (
-    <div>
-      {meal && (
-        <>
-          <h1>{meal.title}</h1>
-          <p>{meal.description}</p>
-          <button
-            onClick={() => {
-              console.log('Book seat clicked');
-              setShowReservationForm(true);
-            }}
-          >
-            Book seat
-          </button>
-          {showReservationForm && (
-            <ReservationForm mealId={meal.id} mealTitle={meal.title} />
-          )}
-          <button
-            onClick={() => {
-              console.log('Review clicked');
-              setShowReviewForm(true);
-            }}
-          >
-            Review
-          </button>
-          {showReviewForm && <ReviewForm mealId={meal.id} />}
-        </>
+    <div className="meal-page">
+      <button onClick={() => setShowReservationForm(true)}>Book a Seat</button>
+      {showReservationForm && (
+        <div className="booking-form">
+          <ReservationForm
+            onSubmit={handleReservationFormSubmit}
+            initialValues={reservationData}
+            handleInputChange={handleInputChange}
+          />
+        </div>
+      )}
+      <button onClick={() => setShowReviewForm(true)}>Leave a Review</button>
+      {showReviewForm && (
+        <div className="review-form">
+          <ReviewForm
+            onSubmit={handleReviewFormSubmit}
+            initialValues={reviewData}
+            handleInputChange={handleReviewInputChange}
+          />
+        </div>
       )}
     </div>
   );
