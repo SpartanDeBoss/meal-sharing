@@ -53,7 +53,7 @@ function HomePage() {
             });
             return (
               <div key={meal.id} className="meal-card">
-                <ImageComponent imageUrl={meal.imageUrl[0]?.image} />
+                <ImageComponent imageUrl={meal.imageUrl[0]?.image} className="meal-image" />
 
                 <h3>{meal.title}</h3>
                 <p>{meal.description}</p>

@@ -21,6 +21,20 @@
   justify-content: space-between;
 }
 
+
+
+.meal-section {
+  display: inline-block;
+}
+
+
+.meal-image {
+  width: 10%;
+  height: 20px;
+  border-radius: 10px;
+}
+
+
 .see-more-button {
   font-family: 'philosopher', sans-serif;
   font-size: 20px;
@@ -31,14 +45,6 @@
   display: block;
   align-items: center;
   text-align: center;
-}
-
-.meal-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
-  cursor: pointer;
 }
 
 .footer {
@@ -59,7 +65,6 @@
 .footer-section {
   flex: 1;
 }
-
 
 .footer-section h4 {
   border-bottom: 1px solid #fff;
