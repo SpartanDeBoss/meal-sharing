@@ -31,7 +31,8 @@
 
 .meal-card{
   display:inline-block ;
-  width: 51;
+  width: 150px;
+  height: 150px;
   margin-left: -12px;
   margin-top: 6px;
   height: 27px;
