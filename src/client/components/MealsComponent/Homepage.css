@@ -25,7 +25,19 @@
 
 .meal-section {
   display: inline-block;
+  
 }
+
+
+.meal-card{
+  display:inline-block ;
+  width: 51;
+  margin-left: -12px;
+  margin-top: 6px;
+  height: 27px;
+}
+
+
 
 
 .meal-image {

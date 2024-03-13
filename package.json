@@ -2,15 +2,14 @@
   "name": "meal-sharing",
   "version": "1.0.0",
   "description": "Website for sharing meals",
-  "engines": {
-    "node": "8.11.1"
-  },
+
   "scripts": {
     "build": "webpack --mode production",
     "start": "npm run build && node ./src/backend/server",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "node --watch ./src/backend/server",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server-prod": "node ./src/backend/server",
   },
   "author": "Benjamin Hughes",
   "license": "MIT",
