@@ -7,7 +7,7 @@ import ReviewForm from './ReviewForm';
 const Meal = ({ meal }) => {
   const [showReservationForm, setShowReservationForm] = useState(false);
   const [showReviewForm, setShowReviewForm] = useState(false); 
-  const formattedPrice = `${meal.price.toFixed(2)} kr.`;
+  const formattedPrice = `${Number(meal.price).toFixed(2)} kr.`;
 
   const handleBookSeatClick = () => {
     setShowReservationForm(true);

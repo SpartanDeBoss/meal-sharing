@@ -22,15 +22,25 @@ function HomePage() {
     },
   ];
 
-  useEffect(() => {
-    fetch('/api/meals')
-      .then((response) => response.json())
-      .then((data) => setMeals(data.slice(0, 3)));
-  }, []);
+ useEffect(() => {
+   fetch('/api/meals')
+     .then((response) => {
+       if (!response.ok) {
+         throw new Error('Network response was not ok');
+       }
+       return response.json();
+     })
+     .then((data) => {
+       if (!Array.isArray(data)) {
+         throw new Error('Data is not an array');
+       }
+       setMeals(data.slice(0, 3));
+     })
+     .catch((error) => {
+       console.error('Error fetching meals:', error);
+     });
+ }, []);
 
-  const handleBookSeat = (mealId) => {
-    setSelectedMeal(mealId);
-  };
 
   return (
     <div>
