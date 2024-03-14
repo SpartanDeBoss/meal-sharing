@@ -1,49 +1,39 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../database');
-router.get('/', async (request, response) => {
-  try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
-    router.get('/api/reviews', async (request, response) => {
-      const reviews = await knex('review').select('*');
-      response.json(reviews);
-    });
 
-    router.get('/api/meals/:meal_id/reviews', async (request, response) => {
-      const reviews = await knex('review')
-        .where({ meal_id: request.params.meal_id })
-        .select('*');
-      response.json(reviews);
-    });
-
-    router.post('/api/reviews', async (request, response) => {
-      const newReview = await knex('review').insert(request.body);
-      response.json(newReview);
-    });
-
-    router.get('/api/reviews/:id', async (request, response) => {
-      const review = await knex('review')
-        .where({ id: request.params.id })
-        .select('*');
-      response.json(review);
-    });
-
-    router.put('/api/reviews/:id', async (request, response) => {
-      const updatedReview = await knex('review')
-        .where({ id: request.params.id })
-        .update(request.body);
-      response.json(updatedReview);
-    });
-
-    router.delete('/api/reviews/:id', async (request, response) => {
-      await knex('review').where({ id: request.params.id }).del();
-      response.json({ message: 'Review deleted' });
-    });
-
-    const meals = await knex('meal');
-    response.json(meals);
-  } catch (error) {
-    throw error;
-  }
+router.get('/', async (req, res) => {
+  const meals = await knex('meal');
+  res.json(meals);
 });
+
+router.post('/', async (req, res) => {
+  const newReservation = req.body;
+  await knex('reservation').insert(newReservation);
+  res.status(201).json({ message: 'Reservation created' });
+});
+
+router.get('/:id', async (req, res) => {
+  const reservationId = req.params.id;
+  const reservation = await knex('reservation').where({
+    id: reservationId,
+  });
+  res.json(reservation);
+});
+
+router.put('/:id', async (req, res) => {
+  const reservationId = req.params.id;
+  const updatedReservation = req.body;
+  await knex('reservation')
+    .where({ id: reservationId })
+    .update(updatedReservation);
+  res.json({ message: 'Reservation updated' });
+});
+
+router.delete('/:id', async (req, res) => {
+  const reservationId = req.params.id;
+  await knex('reservation').where({ id: reservationId }).del();
+  res.json({ message: 'Reservation deleted' });
+});
+
 module.exports = router;

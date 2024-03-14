@@ -15,43 +15,36 @@
   margin-bottom: 80px;
 }
 
-.homepage-container img {
-  display: flex;
-  width: 50%;
-  justify-content: space-between;
-}
-
-
-
-.meal-section {
+/* .main-section{
   display: inline-block;
-  
-}
+} */
 
+
+
+/* .meal-section {
+  display: inline-block;
+} */
 
 .meal-card{
-  display:inline-block ;
-  width: 150px;
-  height: 150px;
-  margin-left: -12px;
-  margin-top: 6px;
-  height: 27px;
-}
-
-
-
-
-.meal-image {
-  width: 10%;
-  height: 20px;
+  display: inline-block;
+  /* margin: 30px; */
+  width: 330px;
+  height: 400px;
+  background-color: #077166;
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+  overflow: hidden;
+  margin-left: 150px;
+
 }
+
 
 
 .see-more-button {
   font-family: 'philosopher', sans-serif;
   font-size: 20px;
-  color: #3e99c0;
+  color: #e66109;
   text-decoration: none;
   margin-top: 50px;
   margin-bottom: 10px;

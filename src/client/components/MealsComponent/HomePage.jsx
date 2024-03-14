@@ -8,39 +8,32 @@ import Floede from '../../assets/images/Floede.jpg';
 
 function HomePage() {
   const [meals, setMeals] = useState([]);
-  const [selectedMeal, setSelectedMeal] = useState(null); // Added missing useState hook for selected meal
+  const [selectedMeal, setSelectedMeal] = useState(null);
 
-  const mealImages = [
-    { name: 'fufu', image: Fufu },
-    {
-      name: 'fante',
-      image: Fantefante,
-    },
-    {
-      name: 'med',
-      image: Floede,
-    },
-  ];
+  const mealImages = {
+    fufu: Fufu,
+    fantefante: Fantefante,
+    med: Floede,
+  };
 
- useEffect(() => {
-   fetch('/api/meals')
-     .then((response) => {
-       if (!response.ok) {
-         throw new Error('Network response was not ok');
-       }
-       return response.json();
-     })
-     .then((data) => {
-       if (!Array.isArray(data)) {
-         throw new Error('Data is not an array');
-       }
-       setMeals(data.slice(0, 3));
-     })
-     .catch((error) => {
-       console.error('Error fetching meals:', error);
-     });
- }, []);
-
+  useEffect(() => {
+    fetch('/api/meals')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (!Array.isArray(data)) {
+          throw new Error('Data is not an array');
+        }
+        setMeals(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching meals:', error);
+      });
+  }, []);
 
   return (
     <div>
@@ -52,29 +45,20 @@ function HomePage() {
           tells a story.
         </h2>
       </header>
-      <main>
+      <main className="main-section">
         <div className="meal-section">
           {meals.map((meal) => {
-            meal.imageUrl = mealImages.filter((image) => {
-              const mealImage = meal.title
-                .toLowerCase()
-                .includes(image.name.toLowerCase());
-              return mealImage;
-            });
+            const imageUrl = mealImages[meal.title.toLowerCase()];
+            console.log('Title:', meal.title.toLowerCase());
+            console.log('Keys in mealImages:', Object.keys(mealImages));
+            console.log('Image URL:', imageUrl);
             return (
               <div key={meal.id} className="meal-card">
-                <ImageComponent imageUrl={meal.imageUrl[0]?.image} className="meal-image" />
+                <ImageComponent imageUrl={imageUrl} className="meal-image" />
 
                 <h3>{meal.title}</h3>
                 <p>{meal.description}</p>
                 <p>{meal.price} kr</p>
-
-                <button
-                  onClick={() => handleBookSeat(meal.id)}
-                  className="meal-link"
-                >
-                  Book a Seat
-                </button>
               </div>
             );
           })}
