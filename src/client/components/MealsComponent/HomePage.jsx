@@ -8,7 +8,6 @@ import Floede from '../../assets/images/Floede.jpg';
 
 function HomePage() {
   const [meals, setMeals] = useState([]);
-  const [selectedMeal, setSelectedMeal] = useState(null);
 
   const mealImages = {
     fufu: Fufu,
@@ -49,13 +48,17 @@ function HomePage() {
         <div className="meal-section">
           {meals.map((meal) => {
             const imageUrl = mealImages[meal.title.toLowerCase()];
+
             console.log('Title:', meal.title.toLowerCase());
             console.log('Keys in mealImages:', Object.keys(mealImages));
             console.log('Image URL:', imageUrl);
+
             return (
               <div key={meal.id} className="meal-card">
-                <ImageComponent imageUrl={imageUrl} className="meal-image" />
-
+                <ImageComponent
+                  imageUrl={imageUrl}
+                  className="meal-image"
+                />
                 <h3>{meal.title}</h3>
                 <p>{meal.description}</p>
                 <p>{meal.price} kr</p>
