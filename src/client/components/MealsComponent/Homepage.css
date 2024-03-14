@@ -1,0 +1,91 @@
+.title {
+  display: flex;
+  justify-content: center;
+  font-family: 'philosopher', sans-serif;
+  font-size: 60px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.slogan {
+  display: flex;
+  justify-content: center;
+  font-family: 'philosopher', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+/* .main-section{
+  display: inline-block;
+} */
+
+
+
+/* .meal-section {
+  display: inline-block;
+} */
+
+.meal-card{
+  display: inline-block;
+  /* margin: 30px; */
+  width: 330px;
+  height: 400px;
+  background-color: #077166;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+  overflow: hidden;
+  margin-left: 150px;
+
+}
+
+
+
+.see-more-button {
+  font-family: 'philosopher', sans-serif;
+  font-size: 20px;
+  color: #e66109;
+  text-decoration: none;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  display: block;
+  align-items: center;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  background-color: rgba(60, 26, 26, 0.8);
+  color: #fff;
+  /* padding: 4px; */
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.footer:hover {
+  background-color: rgba(60, 26, 26, 1);
+}
+
+.footer-section {
+  flex: 1;
+}
+
+.footer-section h4 {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer:hover {
+  background-color: #5c2a2a;
+}
+
+.footer ul li:hover {
+  color: #fff;
+  cursor: pointer;
+}
