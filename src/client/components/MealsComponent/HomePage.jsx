@@ -60,7 +60,7 @@ function HomePage() {
               return mealImage;
             });
             return (
-              <div className="meal-card">
+              <div key={meal.id} className="meal-card">
                 <div className="meal-image-container">
                   <ImageComponent
                     imageUrl={meal.imageUrl[0]?.image}
