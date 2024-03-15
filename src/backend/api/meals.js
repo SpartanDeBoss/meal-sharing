@@ -4,8 +4,8 @@ const knex = require('../database');
 
 router.get('/', async (request, response) => {
   try {
-    const meals = await knex('meals').select('*').limit(3);
-    response.json(meals);
+    const titles = await knex('meals').select('*');
+    response.json(titles);
   } catch (error) {
     throw error;
   }

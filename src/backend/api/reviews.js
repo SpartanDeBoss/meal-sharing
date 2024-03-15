@@ -1,39 +1,40 @@
 const express = require('express');
-const router = express.Router();
 const knex = require('../database');
 
+const router = express.Router();
+
 router.get('/', async (req, res) => {
-  const meals = await knex('meal');
-  res.json(meals);
+  const reviews = await knex('review');
+  res.json(reviews);
 });
 
 router.post('/', async (req, res) => {
-  const newReservation = req.body;
-  await knex('reservation').insert(newReservation);
-  res.status(201).json({ message: 'Reservation created' });
+  const newReview = req.body;
+  await knex('review').insert(newReview);
+  res.status(201).json({ message: 'Review created' });
 });
 
 router.get('/:id', async (req, res) => {
-  const reservationId = req.params.id;
-  const reservation = await knex('reservation').where({
-    id: reservationId,
+  const reviewId = req.params.id;
+  const review = await knex('review').where({
+    id: reviewId,
   });
-  res.json(reservation);
+  res.json(review);
 });
 
 router.put('/:id', async (req, res) => {
-  const reservationId = req.params.id;
-  const updatedReservation = req.body;
-  await knex('reservation')
-    .where({ id: reservationId })
-    .update(updatedReservation);
-  res.json({ message: 'Reservation updated' });
+  const reviewId = req.params.id;
+  const updatedReview = req.body;
+  await knex('review')
+    .where({ id: reviewId })
+    .update(updatedReview);
+  res.json({ message: 'Review updated' });
 });
 
 router.delete('/:id', async (req, res) => {
-  const reservationId = req.params.id;
-  await knex('reservation').where({ id: reservationId }).del();
-  res.json({ message: 'Reservation deleted' });
+  const reviewId = req.params.id;
+  await knex('review').where({ id: reviewId }).del();
+  res.json({ message: 'Review deleted' });
 });
 
 module.exports = router;

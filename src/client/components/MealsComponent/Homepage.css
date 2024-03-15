@@ -15,29 +15,41 @@
   margin-bottom: 80px;
 }
 
-/* .main-section{
+
+.meal-section{
+  margin-left: 135px;
+}
+
+.meal-card {
   display: inline-block;
-} */
-
-
-
-/* .meal-section {
-  display: inline-block;
-} */
-
-.meal-card{
-  display: inline-block;
-  /* margin: 30px; */
-  width: 330px;
+  width: 370px;
   height: 400px;
   background-color: #077166;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: 0.4s;
   overflow: hidden;
+  text-align: center;
+  justify-content:flex-start;
   margin-left: 150px;
 
 }
+
+.meal-image-container {
+  height: 250px; /* Adjust this value as needed */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meal-image {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+
 
 
 

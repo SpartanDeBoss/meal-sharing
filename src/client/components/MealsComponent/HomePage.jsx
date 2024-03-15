@@ -9,11 +9,17 @@ import Floede from '../../assets/images/Floede.jpg';
 function HomePage() {
   const [meals, setMeals] = useState([]);
 
-  const mealImages = {
-    fufu: Fufu,
-    fantefante: Fantefante,
-    med: Floede,
-  };
+  const mealImages = [
+    { name: 'fufu', image: Fufu },
+    {
+      name: 'fante',
+      image: Fantefante,
+    },
+    {
+      name: 'med',
+      image: Floede,
+    },
+  ];
 
   useEffect(() => {
     fetch('/api/meals')
@@ -27,7 +33,7 @@ function HomePage() {
         if (!Array.isArray(data)) {
           throw new Error('Data is not an array');
         }
-        setMeals(data);
+        setMeals(data.slice(0, 3));
       })
       .catch((error) => {
         console.error('Error fetching meals:', error);
@@ -44,21 +50,23 @@ function HomePage() {
           tells a story.
         </h2>
       </header>
-      <main className="main-section">
+      <main>
         <div className="meal-section">
           {meals.map((meal) => {
-            const imageUrl = mealImages[meal.title.toLowerCase()];
-
-            console.log('Title:', meal.title.toLowerCase());
-            console.log('Keys in mealImages:', Object.keys(mealImages));
-            console.log('Image URL:', imageUrl);
-
+            meal.imageUrl = mealImages.filter((image) => {
+              const mealImage = meal.title
+                .toLowerCase()
+                .includes(image.name.toLowerCase());
+              return mealImage;
+            });
             return (
-              <div key={meal.id} className="meal-card">
-                <ImageComponent
-                  imageUrl={imageUrl}
-                  className="meal-image"
-                />
+              <div className="meal-card">
+                <div className="meal-image-container">
+                  <ImageComponent
+                    imageUrl={meal.imageUrl[0]?.image}
+                    className="meal-image"
+                  />
+                </div>
                 <h3>{meal.title}</h3>
                 <p>{meal.description}</p>
                 <p>{meal.price} kr</p>
@@ -99,5 +107,6 @@ function HomePage() {
     </div>
   );
 }
+
 
 export default HomePage;
