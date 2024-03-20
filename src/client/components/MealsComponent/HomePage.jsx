@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
 import { Link } from 'react-router-dom';
 import './Homepage.css';
 import ImageComponent from './ImageComponent';
@@ -9,6 +9,7 @@ import Floede from '../../assets/images/Floede.jpg';
 function HomePage() {
   const [meals, setMeals] = useState([]);
 
+  //we have an array of objects with the name of the meal and the image
   const mealImages = [
     { name: 'fufu', image: Fufu },
     {
@@ -20,6 +21,9 @@ function HomePage() {
       image: Floede,
     },
   ];
+
+
+//we use useEffect to fetch 3 meals from the server to have it on the homepage
 
   useEffect(() => {
     fetch('/api/meals')
@@ -52,7 +56,7 @@ function HomePage() {
       </header>
       <main>
         <div className="meal-section">
-          {meals.map((meal) => {
+          {meals.map((meal) => {    //here we map through the meals and filter the images to match the meal name
             meal.imageUrl = mealImages.filter((image) => {
               const mealImage = meal.title
                 .toLowerCase()

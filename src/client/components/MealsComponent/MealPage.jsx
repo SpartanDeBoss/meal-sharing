@@ -55,6 +55,8 @@ function MealPage() {
     }));
   };
 
+  //It fetches meal data from the API based on the meal ID by using params from the URL. It also handles the form submission and input change for the reservation and review forms.
+
   return (
     <div className="meal-page">
       <button onClick={() => setShowReservationForm(true)}>Book a Seat</button>

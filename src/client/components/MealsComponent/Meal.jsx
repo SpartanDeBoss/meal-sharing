@@ -4,6 +4,8 @@ import './Meal.css';
 import ReservationForm from './ReservationForm';
 import ReviewForm from './ReviewForm';
 
+//we are using the meal object from the props to display the meal details.. we using use state to control and show the reservation and review forms, same with the handlebook seat and leave a review click.we also have formatted price variables to make sure the prices are displayed
+
 const Meal = ({ meal }) => {
   const [showReservationForm, setShowReservationForm] = useState(false);
   const [showReviewForm, setShowReviewForm] = useState(false); 

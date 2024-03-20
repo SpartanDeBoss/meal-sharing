@@ -1,6 +1,9 @@
 // ReservationForm.js
 import React from 'react';
 
+
+//in  reservation  component it takes in the initial values and the handle input change function as prop. and returns a form with an input fields for the user to fill in their details and reserve a seat
+
 function ReservationForm({ onSubmit, initialValues, handleInputChange }) {
   return (
     <form onSubmit={onSubmit}>

@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../database');
 
-// Route for fetching all meals
+//  in this Route we have a handler for fetching all meals ie get, put and delete
 router.get('/', async (request, response) => {
   try {
     const reservations = await knex('reservation');
     response.json(reservations);
   } catch (error) {
     console.error('Error fetching meals:', error);
-    response.status(500).json({ error: 'Internal server error' });
+    response.status(500).json({ error: 'Internal server error' });        // each handles include error handling
   }
 });
 
