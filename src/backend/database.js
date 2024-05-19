@@ -2,7 +2,7 @@ require('dotenv').config();
 
 // create connection
 const knex = require('knex')({
-  client: 'postgres', // We basically need to change the client that we are using to postgres
+  client: 'mysql2', // We basically need to change the client that we are using to postgres
   connection: {
     ssl: {
       rejectUnauthorized: false,

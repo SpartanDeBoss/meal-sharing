@@ -40,7 +40,7 @@ export default function MealsList() {
       <div className="meals-container">
         <div className="grid-container">
           {meals.map((meal) => (
-            <Meal key={meal.id} meal={meal} />
+            <Meal key={meal.id} meal={meal} /> 
           ))}
         </div>
       </div>

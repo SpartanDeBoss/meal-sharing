@@ -15,43 +15,58 @@
   margin-bottom: 80px;
 }
 
-
-.meal-section{
-  margin-left: 135px;
+.meal-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: #8e5858;
+  padding: 20px;
 }
 
 .meal-card {
-  display: inline-block;
-  width: 370px;
-  height: 400px;
-  background-color: #077166;
+  background-color: #50817c;
+  width: 300px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: 0.4s;
   overflow: hidden;
-  text-align: center;
-  justify-content:flex-start;
-  margin-left: 150px;
+  transition: transform 0.2s;
+}
 
+.meal-card:hover {
+  transform: scale(1.05);
 }
 
 .meal-image-container {
-  height: 250px; /* Adjust this value as needed */
+  width: 100%;
+  height: 250px; /* Fixed height for consistency */
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #fff; /* Optional: Background color to fill space */
 }
 
 .meal-image {
-  width: auto;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Ensure the entire image is visible */
 }
 
+.meal-info {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
 
+.meal-info h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
 
-
+.meal-info p {
+  margin: 5px 0;
+  font-size: 16px;
+}
 
 .see-more-button {
   font-family: 'philosopher', sans-serif;
@@ -61,7 +76,6 @@
   margin-top: 50px;
   margin-bottom: 10px;
   display: block;
-  align-items: center;
   text-align: center;
 }
 
@@ -71,9 +85,7 @@
   margin-top: 50px;
   background-color: rgba(60, 26, 26, 0.8);
   color: #fff;
-  /* padding: 4px; */
-  padding-top: 10px;
-  padding-left: 10px;
+  padding: 20px;
 }
 
 .footer:hover {
@@ -87,17 +99,19 @@
 .footer-section h4 {
   border-bottom: 1px solid #fff;
   padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
 }
 
 .footer-section ul li {
   margin-bottom: 10px;
 }
 
-.footer:hover {
-  background-color: #5c2a2a;
-}
-
-.footer ul li:hover {
+.footer-section ul li:hover {
   color: #fff;
   cursor: pointer;
 }

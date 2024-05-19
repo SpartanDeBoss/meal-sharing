@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Meal.css';
 import ReservationForm from './ReservationForm';
+import MealImages from './MealImages';
+
+
+
 import ReviewForm from './ReviewForm';
 
 //we are using the meal object from the props to display the meal details.. we using use state to control and show the reservation and review forms, same with the handlebook seat and leave a review click.we also have formatted price variables to make sure the prices are displayed
@@ -22,9 +26,7 @@ const Meal = ({ meal }) => {
   return (
     <Link to={`/meals/${meal.id}`}>
       <div className="meal-card">
-        {meal.image && (
-          <img className="meal-image" src={meal.image} alt={meal.title} />
-        )}
+        <MealImages title={meal.title} />
         <h2 className="meal-title">{meal.title}</h2>
         <p className="meal-description">{meal.description}</p>
         <p className="meal-price">{formattedPrice}</p>
