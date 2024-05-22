@@ -29,12 +29,15 @@ function HomePage() {
   return (
     <div>
       <header>
-        <h1 className="title">Serenity Meals</h1>
-        <h2 className="slogan">
-          From our kitchen to your table, welcome to&nbsp;
-          <span className="welcome-info">Serenity Meals</span>, where every bite
-          tells a story.
-        </h2>
+        <div className="header-animation">
+          <div className='head-title'>Serenity Meals</div>
+          <div>
+            <span className='head-subtitle'>
+              From our kitchen to your table, welcome to Serenity Meals, where
+              every bite tells a story.
+            </span>
+          </div>
+        </div>
       </header>
       <main>
         <div className="meal-section">
@@ -46,7 +49,7 @@ function HomePage() {
               <div className="meal-info">
                 <h3>{meal.title}</h3>
                 <p>{meal.description}</p>
-                <p>{meal.price} kr</p>
+                <p className="price">{`${Number(meal.price).toFixed(2)} kr`}</p>
               </div>
             </div>
           ))}

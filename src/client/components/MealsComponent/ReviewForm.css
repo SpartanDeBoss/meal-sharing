@@ -1,0 +1,24 @@
+.rating-info{
+      display: inline-flex;
+    margin-right: 7px;
+    margin-bottom: 11px;
+
+}
+
+.rating-input{
+    width: 22%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #6b6565;
+    height: 31px;
+    border-radius: 13px;
+}
+
+.comment-input{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 13px;
+    border: 1px solid #6b6565;
+}

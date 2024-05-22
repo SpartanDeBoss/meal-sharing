@@ -14,7 +14,7 @@ const mealImages = [
   { name: 'fante', image: Fantefante },
   { name: 'med', image: Floede },
   { name: 'burger', image: Burger },
-  { name: 'Indonesian', image: IndonesianMeal },
+  { name: 'indonesian', image: IndonesianMeal },
   { name: 'pasta', image: PastaCarbonara },
   { name: 'sushi', image: SushiNight },
   { name: 'tacos', image: Tacos },

@@ -1,18 +1,73 @@
-.title {
-  display: flex;
-  justify-content: center;
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:300'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400'); */
+
+
+/* .body {
+  font-family: 'philosopher',' sans-serif';
+} */
+.head-title {
   font-family: 'philosopher', sans-serif;
-  font-size: 60px;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  font-size: 46px;
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 30px;
 }
 
-.slogan {
-  display: flex;
-  justify-content: center;
+.head-subtitle {
   font-family: 'philosopher', sans-serif;
-  margin-top: 20px;
-  margin-bottom: 80px;
+  font-size: 34px;
+  /* text-align: center; */
+  margin-bottom: 50px;
+  padding-left: 10%;
+
+}
+
+.header-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 36px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: 'philosopher', sans-serif;
+
+}
+
+.header-animation div:first-of-type {
+  animation: showup 7s infinite;
+}
+
+.header-animation div:last-of-type {
+  width: 0px;
+  animation: reveal 7s infinite;
+}
+
+.header-animation div:last-of-type span {
+  margin-left: -800px;
+  animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes slidein {
+  0% { margin-left: -1600px; }
+  20% { margin-left: -1600px; }
+  35% { margin-left: 0px; }
+  100% { margin-left: 0px; }
+}
+
+@keyframes reveal {
+  0% { opacity: 0; width: 0px; }
+  20% { opacity: 1; width: 0px; }
+  30% { width: 1600px; }
+  80% { opacity: 1; }
+  100% { opacity: 0; width: 1600px; }
 }
 
 .meal-section {
@@ -43,7 +98,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff; /* Optional: Background color to fill space */
+  background-color: #f9f5f5; /* Optional: Background color to fill space */
 }
 
 .meal-image {
@@ -55,7 +110,7 @@
 .meal-info {
   padding: 20px;
   text-align: center;
-  color: #fff;
+  color: hsl(200, 30%, 96%);
 }
 
 .meal-info h3 {
@@ -66,6 +121,11 @@
 .meal-info p {
   margin: 5px 0;
   font-size: 16px;
+}
+
+.meal-info .price {
+  font-weight: bold;
+  color: #fff;
 }
 
 .see-more-button {
@@ -86,6 +146,7 @@
   background-color: rgba(60, 26, 26, 0.8);
   color: #fff;
   padding: 20px;
+  text-align: center;
 }
 
 .footer:hover {
@@ -100,7 +161,13 @@
   border-bottom: 1px solid #fff;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  text-align: center;
 }
+h4 {
+  font-family: 'philosopher', sans-serif;
+  font-size: 25px;
+}
+
 
 .footer-section ul {
   list-style: none;
