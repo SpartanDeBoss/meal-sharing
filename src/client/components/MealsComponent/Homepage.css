@@ -1,12 +1,11 @@
-/* @import url('https://fonts.googleapis.com/css?family=Roboto:300'); */
+    /* @import url('https://fonts.googleapis.com/css?family=Roboto:300'); */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400'); */
 
 
-/* .body {
-  font-family: 'philosopher',' sans-serif';
-} */
+
 .head-title {
+  display: flex;
   font-family: 'philosopher', sans-serif;
   font-size: 46px;
   text-align: center;
@@ -17,7 +16,6 @@
 .head-subtitle {
   font-family: 'philosopher', sans-serif;
   font-size: 34px;
-  /* text-align: center; */
   margin-bottom: 50px;
   padding-left: 10%;
 
