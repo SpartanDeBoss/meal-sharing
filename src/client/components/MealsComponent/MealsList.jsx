@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Meal from './Meal';
+import './Meal.css'; // Ensure you import the CSS file
+import JokesRotator from './Jokes/JokesRotator';
 
 export default function MealsList() {
   const [meals, setMeals] = useState([]);
@@ -35,15 +37,18 @@ export default function MealsList() {
 
   return (
     <div>
-      <h1>Meals List</h1>
+      <h1 className="meals-title">Delicious Dining Options</h1>
       {error && <p>Error: {error}</p>}
       <div className="meals-container">
-        <div className="grid-container">
+        <div className="meals-list">
           {meals.map((meal) => (
             <Meal key={meal.id} meal={meal} />
           ))}
         </div>
       </div>
+      <footer>
+        <JokesRotator />
+      </footer>
     </div>
   );
 }

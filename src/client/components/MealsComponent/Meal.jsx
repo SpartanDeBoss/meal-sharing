@@ -2,14 +2,25 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Meal.css';
 import ReservationForm from './ReservationForm';
+import MealImages from './MealImages';
 import ReviewForm from './ReviewForm';
-
-//we are using the meal object from the props to display the meal details.. we using use state to control and show the reservation and review forms, same with the handlebook seat and leave a review click.we also have formatted price variables to make sure the prices are displayed
 
 const Meal = ({ meal }) => {
   const [showReservationForm, setShowReservationForm] = useState(false);
-  const [showReviewForm, setShowReviewForm] = useState(false); 
-  const formattedPrice = `${Number(meal.price).toFixed(2)} kr.`;
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [reservationDetails, setReservationDetails] = useState({
+    name: '',
+    phoneNumber: '',
+    email: '',
+    numberOfGuests: 1,
+  });
+
+  const [reviewDetails, setReviewDetails] = useState({
+    rating: 1,
+    comment: '',
+  });
+
+  const formattedPrice = `${Number(meal.price).toFixed(2)} kr`;
 
   const handleBookSeatClick = () => {
     setShowReservationForm(true);
@@ -19,23 +30,60 @@ const Meal = ({ meal }) => {
     setShowReviewForm(true);
   };
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setReservationDetails({
+      ...reservationDetails,
+      [name]: value,
+    });
+  };
+
+  const handleReservationSubmit = (event) => {
+    event.preventDefault();
+
+    fetch('/api/reservations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(reservationDetails),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+    console.log('Reservation submitted:', reservationDetails);
+  };
+
   return (
-    <Link to={`/meals/${meal.id}`}>
+    <div className="meal-page">
       <div className="meal-card">
-        {meal.image && (
-          <img className="meal-image" src={meal.image} alt={meal.title} />
-        )}
-        <h2 className="meal-title">{meal.title}</h2>
-        <p className="meal-description">{meal.description}</p>
-        <p className="meal-price">{formattedPrice}</p>
+        <Link to={`/meals/${meal.id}`}>
+          <div className="meal-image-container">
+            <MealImages title={meal.title} className="meal-image" />
+          </div>
+          <div className="meal-info">
+            <h2>{meal.title}</h2>
+            <p>{meal.description}</p>
+            <p className="price">{formattedPrice}</p>
+          </div>
+        </Link>
         <button onClick={handleBookSeatClick}>Book Seat</button>
         {showReservationForm && <ReservationForm mealId={meal.id} />}
         <button onClick={handleLeaveReviewClick}>Leave Review</button>
         {showReviewForm && <ReviewForm mealId={meal.id} />}
       </div>
-    </Link>
+    </div>
   );
 };
-
 
 export default Meal;
