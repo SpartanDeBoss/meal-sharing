@@ -8,7 +8,7 @@ const JokesRotator = () => {
     'Why did the scarecrow win an award? Because he was outstanding in his field.',
     'What do you call fake spaghetti? An impasta.',
     'Why did the coffee file a police report? It got mugged.',
-    // Add more jokes as needed
+    // Add more  food jokes as needed here
   ];
 
   const [currentJoke, setCurrentJoke] = useState(0);
