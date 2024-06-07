@@ -1,8 +1,8 @@
 import React from "react";
 import Fufu from '../../assets/images/Fufu.jpeg';
 import Fantefante from '../../assets/images/Fantefante.jpeg';
-import Floede from '../../assets/images/floede.jpg'
-import Burger from '../../assets/images/burger.jpg';
+import Floede from '../../assets/images/Floede.jpg'
+import Burger from '../../assets/images/Burger.jpg';
 import IndonesianMeal from '../../assets/images/Indonesian Meal.jpeg';
 import PastaCarbonara from '../../assets/images/Pasta Carbonara.jpg';
 import SushiNight from '../../assets/images/Sushi Night.jpg';
